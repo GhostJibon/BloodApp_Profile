@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:profile/donor_details_screen/donor_details.dart';
+import 'package:profile/notification_screen/notification_screen.dart';
 import 'package:profile/profile_screen/profile.dart';
 import 'package:sizer/sizer.dart';
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Profile(),
+        home: DonorDetails(),
       );
     });
   }
