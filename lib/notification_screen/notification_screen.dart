@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:profile/notification_details/notification_details_screen.dart';
 
 class NotificationScreen extends StatefulWidget {
   @override
@@ -11,7 +12,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Notifications'),
+      ),
       body: Container(
         color: Color(0xFFEBEBEB),
         height: double.maxFinite,
@@ -20,38 +23,65 @@ class _NotificationScreenState extends State<NotificationScreen> {
           children: [
             Padding(
               padding: EdgeInsets.only(top: 10),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5)),
-                height: 100,
-                width: 330,
-                child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            width: 100,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NotificationDetailsScreen()),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5)),
+                  height: 100,
+                  width: 330,
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Blood Request',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Text(
+                                  'Patient: ' + 'Hasan Masrur',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                              ],
+                            ),
+                            Row(
                               children: [
                                 CircleAvatar(
                                   backgroundColor: Color(0xffEF150D),
-                                  radius: 13,
+                                  radius: 15,
                                   child: Center(
                                     child: Text(
                                       'A+',
                                       style: TextStyle(
-                                          fontSize: 12,
+                                          fontSize: 14,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w600),
                                     ),
                                   ),
+                                ),
+                                SizedBox(
+                                  width: 10,
                                 ),
                                 GestureDetector(
                                   child: CircleAvatar(
@@ -63,46 +93,49 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                     backgroundColor: Color(0xffF0F0F0),
                                   ),
                                 ),
-                                GestureDetector(
-                                  child: CircleAvatar(
-                                    child: Icon(
-                                      Icons.email_outlined,
-                                      color: Color(0xff41A35C),
-                                    ),
-                                    radius: 13,
-                                    backgroundColor: Color(0xffF0F0F0),
-                                  ),
-                                )
                               ],
                             ),
-                          ),
-                          Text(
-                            '+ Donate',
-                            style: TextStyle(
-                                color: Color(0xffEF150D),
-                                fontSize: 11,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'Md Hasan Masrur',
-                        style: TextStyle(
-                            fontSize: 13, fontWeight: FontWeight.w600),
-                      ),
-                      Text(
-                        '20/19 Tilottoma , Tolarbag , Mirpur 1 , dhaka',
-                        style:
-                            TextStyle(fontSize: 11, color: Color(0xff555555)),
-                        maxLines: 2,
-                      ),
-                      Text(
-                        '1 hour ago',
-                        style:
-                            TextStyle(fontSize: 11, color: Color(0xff555555)),
-                        maxLines: 2,
-                      ),
-                    ],
+                          ],
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.location_on_outlined,
+                                  color: Color(0xffEF150D),
+                                ),
+                                Container(
+                                  width: 200,
+                                  child: Text(
+                                    '20/19 Tilottoma , Tolarbag , Mirpur 1 , dhaka',
+                                    style: TextStyle(
+                                        fontSize: 11, color: Color(0xff555555)),
+                                    maxLines: 2,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                                height: 25,
+                                width: 70,
+                                decoration: BoxDecoration(
+                                    color: Color(0xff41A35C),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Center(
+                                  child: Text(
+                                    'Donate',
+                                    style: TextStyle(
+                                        fontSize: 13, color: Colors.white),
+                                  ),
+                                ))
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
